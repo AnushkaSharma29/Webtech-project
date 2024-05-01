@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comedy Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffad8;
+            margin: 0;
+            padding: 0;
+        }
+        #banner {
+            background-color: #ffcc00;
+            background-image: url('https://www.bewakoof.com/blog/wp-content/uploads/2021/12/11-Best-Blockbuster-Bollywood-Hindi-Action-Movies-of-All-Time.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 200px;
+        }
+        #movies {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .movie {
+            background-color: #fbf9f9;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .movie:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .movie img {
+            max-width: 500px;
+            height: 300px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .book-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .book-btn:hover {
+            background-color: #45a049;
+        }
+        .book-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+    </div>
+
+    <input type="text" id="filterInput" placeholder="Search for movies..." style="margin: 20px auto; display: block; width: 80%; padding: 10px; border-radius: 5px;">
+
+    <div id="movies">
+        <div class="movie">
+            <img src="https://i.ytimg.com/vi/sBnVWcECpVY/maxresdefault.jpg" alt="Movie 1">
+            <div>
+                <h2> Bloody Daddy </h2>
+                <p>Bloody Daddy chronicles the story of one night when NCB officer Sumair Azad (Shahid Kapoor) goes to meet drug lord Sikander Choudhary (Ronit Bose Roy) in his club to return a bag of cocaine in exchange for his kidnapped teenage son. But things don't go as per plan and what ensues is a 'bloody' fight.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://static.tnn.in/thumb/msid-107127675,thumbsize-125000,width-1280,height-720,resizemode-75/107127675.jpg" alt="Movie 2">
+            <div>
+                <h2>Fighter</h2>
+                <p>Fighter is an ambitious aerial action film that attempts to showcase the heroism and skill of the Indian Air Force. The film stars Hrithik Roshan as Patty, a daring squadron leader who leads a team of elite pilots called Air Dragons. Deepika Padukone plays Mini, his love interest and fellow pilot.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://assets-in.bmscdn.com/discovery-catalog/events/et00313411-qknbelavxa-landscape.jpg" alt="Movie 2">
+            <div>
+                <h2>Tiger 3</h2>
+                <p>In the present, Avinash "Tiger" Singh Rathore is called for a mission by the new RAW chief Maithili Menon to rescue Tiger's former handler Gopi Arya, who was captured in Afghanistan while trying to extract information from the Taliban about a mission being planned in Pakistan.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://www.theweek.in/content/dam/week/review/movies/2019/images/2019/hrithik-tiger-war.jpg" alt="Movie 2">
+            <div>
+                <h2>War</h2>
+                <p>Indian agent Khalid goes on a mission to hunt and eliminate his former mentor, the country's top agent Kabir who has gone rogue. A deadly war begins. Indian agent Khalid goes on a mission to hunt and eliminate his former mentor, the country's top agent Kabir who has gone rogue.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://i.ytimg.com/vi/ZDLHAd7Yu88/maxresdefault.jpg" alt="Movie 2">
+            <div>
+                <h2>Wanted</h2>
+                <p>Set in Mumbai, the plot revolves around an undercover IPS officer disguised as thug whose killer instincts earn him not only his girlfriend's disapproval and a corrupt cop's enmity but also the attention of a wanted don. </p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+       
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterInput = document.getElementById('filterInput');
+
+            filterInput.addEventListener('input', function() {
+                filterMovies(filterInput.value.toLowerCase());
+            });
+        });
+
+        function filterMovies(filterText) {
+            const movies = document.querySelectorAll('.movie');
+
+            movies.forEach(function(movie) {
+                const title = movie.querySelector('h2').textContent.toLowerCase();
+                
+
+                if (title.includes(filterText) ) {
+                    movie.style.display = 'flex';
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

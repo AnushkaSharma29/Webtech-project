@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comedy Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffad8;
+            margin: 0;
+            padding: 0;
+        }
+        #banner {
+            background-color: #ffcc00;
+            background-image: url('https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/09/Collage-Maker-14-Sep-2022-0122-AM.jpg');
+            background-size: cover;
+            width: 1150px;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 200px;
+        }
+        #movies {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .movie {
+            background-color: #fbf9f9;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .movie:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .movie img {
+            max-width: 500px;
+            height: 300px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .book-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .book-btn:hover {
+            background-color: #45a049;
+        }
+        .book-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+    </div>
+
+    <input type="text" id="filterInput" placeholder="Search for movies..." style="margin: 20px auto; display: block; width: 80%; padding: 10px; border-radius: 5px;">
+
+    <div id="movies">
+        <div class="movie">
+            <img src="https://e1.pxfuel.com/desktop-wallpaper/180/415/desktop-wallpaper-bollywood-horror-film-bhoot-part-one-the-haunted-ship-zee-one.jpg" alt="Movie 1">
+            <div>
+                <h2> Bhoot </h2>
+                <p>A young shipping officer Prithvi (Vicky Kaushal) dealing with a massive personal loss, he decided to solve the mysteries of a haunted ship...!! The make-up ends up making the characters look unintentionally funny, rather than scary. For a horror film, 'Bhoot - The Haunted Ship' falls short of being a good movie.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://static.toiimg.com/thumb/msid-101239328,width-1070,height-580,imgsize-1096677,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg" alt="Movie 2">
+            <div>
+                <h2>1920</h2>
+                <p>A young girl walks into a world of darkness is search of revenge but darkness consumes her making her a victim of that very revenge. A young girl walks into a world of darkness is search of revenge but darkness consumes her making her a victim of that very revenge.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://i.ytimg.com/vi/LkkvegaSem8/maxresdefault.jpg" alt="Movie 2">
+            <div>
+                <h2>Bhool Bhulaiyaa</h2>
+                <p>It is a standalone sequel to the 2007 film Bhool Bhulaiyaa (2007). The film stars Tabu, Kartik Aaryan and Kiara Advani and follows Ruhaan Randhawa, who has to pose as a fraud psychic to deal with the return of Manjulika, a malevolent spirit hell-bent on vengeance against the Thakur family.
+                </p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202002/pari2.jpeg?size=690:388" alt="Movie 2">
+            <div>
+                <h2>Pari</h2>
+                <p>Arnab tries to help Ruksahana, who is found under mysterious circumstances in a house. He lets her stay at his home until he discovers something strange about her. Arnab tries to help Ruksahana, who is found under mysterious circumstances in a house.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterInput = document.getElementById('filterInput');
+
+            filterInput.addEventListener('input', function() {
+                filterMovies(filterInput.value.toLowerCase());
+            });
+        });
+
+        function filterMovies(filterText) {
+            const movies = document.querySelectorAll('.movie');
+
+            movies.forEach(function(movie) {
+                const title = movie.querySelector('h2').textContent.toLowerCase();
+                
+
+                if (title.includes(filterText) ) {
+                    movie.style.display = 'flex';
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

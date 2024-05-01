@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comedy Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#fffad8;
+            margin: 0;
+            padding: 0;
+        }
+        #banner {
+            background-color:#fffad8;
+            background-image: url('https://hashtagmagazine.in/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-27-at-4.43.02-PM.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 200px;
+        }
+        #movies {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .movie {
+            background-color: #fbf9f9;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .movie:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .movie img {
+            max-width: 500px;
+            height: 300px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .book-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .book-btn:hover {
+            background-color: #45a049;
+        }
+        .book-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+    </div>
+
+    <input type="text" id="filterInput" placeholder="Search for movies..." style="margin: 20px auto; display: block; width: 80%; padding: 10px; border-radius: 5px;">
+
+    <div id="movies">
+        <div class="movie">
+            <img src="https://bcomber.org/wp-content/uploads/2021/10/Screen-Shot-2021-10-26-at-6.48.45-AM-900x499.png" alt="Movie 1">
+            <div>
+                <h2> 3 Idiots </h2>
+                <p>3 IDIOTS follows college best friends, Farhan (R. Madhavan) and Raju (Sharman Joshi), who drive down to Shimla in search for Rancho (Aamir Khan), their long-lost buddy. During their journey, they recall the times they shared together, the mischief they got up to, and all that they learned from Rancho.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.indianexpress.com/2020/06/golmaal-again759.jpg?w=600" alt="Movie 2">
+            <div>
+                <h2>Golmaal Again</h2>
+                <p>Gopal, Madhav, Lucky, Laxman and Laxman 2 are orphans in an orphanage in Ooty managed by businessman Joy Jamnadas. Gopal is afraid of ghosts, Lucky is mute and Laxman has lisp. They are also aware of the local librarian Anna's ability to see ghosts and spirits.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/3668/593668-h" alt="Movie 2">
+            <div>
+                <h2>Housefull 4</h2>
+                <p>Three couples who get separated from each other due to an evil ploy, reincarnate after 600 years and meet each other as history repeats itself again and their respective partners get mixed up this time.+</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://english.idreampost.com/wp-content/uploads/2024/03/Murder-mubarak-OTT-review.jpg" alt="Movie 2">
+            <div>
+                <h2>Murder Mubarak</h2>
+                <p>When a gym trainer is murdered at an elite Delhi club, a wily investigator unravels the sordid secrets of its ultrarich members to find the killer.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://i.ytimg.com/vi/qhyndgHD04A/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB0q5b-GZv9PcLP7vAKevNJCX4QpQ" alt="Movie 2">
+            <div>
+                <h2>Hera Pheri</h2>
+                <p>The plot revolves around two tenants, Raju and Shyam, and their landlord, Baburao Ganpatrao Apte, who are in desperate need of money. They chance upon a ransom call through a cross connection and hatch a plan to claim the ransom for themselves.</p>
+                <p> Price: $350</p>
+                <button class="book-btn" onclick="alert('Booking Confirmed')">Book Ticket</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+       
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterInput = document.getElementById('filterInput');
+
+            filterInput.addEventListener('input', function() {
+                filterMovies(filterInput.value.toLowerCase());
+            });
+        });
+
+        function filterMovies(filterText) {
+            const movies = document.querySelectorAll('.movie');
+
+            movies.forEach(function(movie) {
+                const title = movie.querySelector('h2').textContent.toLowerCase();
+                
+
+                if (title.includes(filterText) ) {
+                    movie.style.display = 'flex';
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
